@@ -18,6 +18,7 @@ class RobotDefaults(TypedDict):
 _ROBOT_DEFAULTS: dict[str, RobotDefaults] = {
     "g1": {"robot_dof": 29, "robot_height": 1.32, "object_name": "ground"},
     "t1": {"robot_dof": 23, "robot_height": 1.2, "object_name": "ground"},
+    "irmv_v3": {"robot_dof": 21, "robot_height": 1.2, "object_name": "ground"},
 }
 
 
@@ -154,6 +155,17 @@ class RobotConfig:
                 "left_foot_sphere_5_link",
                 "right_foot_sphere_5_link",
             ]
+        if self.robot_type == "irmv_v3":
+            return [
+                "left_ankle_roll_sphere_1_link",
+                "right_ankle_roll_sphere_1_link",
+                "left_ankle_roll_sphere_2_link",
+                "right_ankle_roll_sphere_2_link",
+                "left_ankle_roll_sphere_3_link",
+                "right_ankle_roll_sphere_3_link",
+                "left_ankle_roll_sphere_4_link",
+                "right_ankle_roll_sphere_4_link",
+            ]
         raise ValueError(f"Invalid robot type: {self.robot_type}")
 
     FOOT_STICKING_LINKS = property(
@@ -181,6 +193,12 @@ class RobotConfig:
                     "35": -0.05,
                 }
             )
+        if self.robot_type == "irmv_v3":
+            base.update(
+                {
+                    "15": -0.5,  # waist_yaw_joint (qpos index 15)
+                }
+            )
 
         return base
 
@@ -205,6 +223,14 @@ class RobotConfig:
                     "33": 0.2,  # left wrist
                     "34": 0.3,
                     "35": 0.05,
+                }
+            )
+        if self.robot_type == "irmv_v3":
+            base.update(
+                {
+                    "10": 1.4,  # left_elbow_joint (qpos index 10)
+                    "14": 1.4,  # right_elbow_joint (qpos index 14)
+                    "15": 0.5,  # waist_yaw_joint (qpos index 15)
                 }
             )
 

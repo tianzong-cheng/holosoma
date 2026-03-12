@@ -1,0 +1,252 @@
+<mujoco model="irmv_v3_21dof">
+  <compiler angle="radian" meshdir="meshes/"/>
+
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" pos="0 0 0"/>
+    <light pos="0 0 1000" castshadow="true"/>
+
+    <!-- ===== Floating base: base_link (torso/shoulder area) ===== -->
+    <body name="base_link" pos="0 0 1.0">
+      <inertial pos="0.00024308 -1.3217E-05 0.11351" mass="4.7437"
+                fullinertia="0.014999 0.014975 0.010368 5.0154E-08 -0.00022723 -5.6146E-06"/>
+      <freejoint/>
+      <geom type="capsule" size="0.05 0.08" pos="0 0 0.05" rgba="0.4 0.4 0.4 1"
+            contype="0" conaffinity="0" group="1" density="0"/>
+
+      <!-- ===== Left arm ===== -->
+      <body name="left_shoulder_pitch_link" pos="0 0.11 0.14">
+        <inertial pos="-0.0096497 0.04621 -2.1609E-06" mass="1.8326"
+                  fullinertia="0.0015489 0.00083507 0.0010703 2.4846E-05 -5.1846E-09 -1.7042E-09"/>
+        <joint name="left_shoulder_pitch_joint" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14"/>
+        <geom type="capsule" size="0.03 0.03" pos="-0.01 0.03 0" rgba="0.7 0.7 0.7 1"
+              contype="0" conaffinity="0" group="1" density="0"/>
+        <body name="left_shoulder_roll_link" pos="0 0.05 0">
+          <inertial pos="0.0055105 2.7677E-06 -0.080331" mass="1.5228"
+                    fullinertia="0.0012034 0.0011409 0.00084986 1.4433E-09 -0.00012385 -3.6961E-09"/>
+          <joint name="left_shoulder_roll_joint" pos="0 0 0" axis="-1 0 0" range="-3.14 3.14"/>
+          <geom type="capsule" size="0.025 0.04" pos="0 0 -0.04" rgba="0.4 0.4 0.4 1"
+                contype="0" conaffinity="0" group="1" density="0"/>
+          <body name="left_shoulder_yaw_link" pos="0 0 -0.15">
+            <inertial pos="3.6229E-05 0.0096497 -0.046201" mass="1.8326"
+                      fullinertia="0.0010713 0.0015489 0.00083407 -2.533E-07 -1.8104E-06 2.4782E-05"/>
+            <joint name="left_shoulder_yaw_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+            <geom type="capsule" size="0.025 0.03" pos="0 0.01 -0.03" rgba="0.7 0.7 0.7 1"
+                  contype="0" conaffinity="0" group="1" density="0"/>
+            <body name="left_elbow_link" pos="0 0 -0.05">
+              <inertial pos="0.12357 1.2282E-07 1.8511E-06" mass="0.21621"
+                        fullinertia="0.00017757 0.00082123 0.00080029 2.2432E-09 3.6784E-08 3.8327E-09"/>
+              <joint name="left_elbow_joint" pos="0 0 0" axis="0 1 0" range="-3.14 1.4"/>
+              <geom type="capsule" size="0.02 0.12" pos="0.12 0 0" quat="0.7071068 0 0.7071068 0"
+                    rgba="0.4 0.4 0.4 1" contype="0" conaffinity="0" group="1" density="0"/>
+              <!-- Hand end-effector sphere (no wrist joint) -->
+              <body name="left_hand_sphere_link" pos="0.25 0 0">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                <geom type="sphere" size="0.02" rgba="0.9 0.5 0.5 1"
+                      contype="0" conaffinity="0" group="1" density="0"/>
+                <geom name="left_hand_sphere_link" type="sphere" size="0.02" rgba="0.9 0.5 0.5 1"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- ===== Right arm ===== -->
+      <body name="right_shoulder_pitch_link" pos="0 -0.11 0.14">
+        <inertial pos="-0.0096497 -0.04621 2.1604E-06" mass="1.8326"
+                  fullinertia="0.0015489 0.00083507 0.0010703 -2.4846E-05 5.1834E-09 -1.6997E-09"/>
+        <joint name="right_shoulder_pitch_joint" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14"/>
+        <geom type="capsule" size="0.03 0.03" pos="-0.01 -0.03 0" rgba="0.7 0.7 0.7 1"
+              contype="0" conaffinity="0" group="1" density="0"/>
+        <body name="right_shoulder_roll_link" pos="0 -0.05 0">
+          <inertial pos="0.0055105 6.671E-06 -0.080331" mass="1.5228"
+                    fullinertia="0.0012034 0.0011409 0.00084986 1.4499E-09 -0.00012385 -3.6886E-09"/>
+          <joint name="right_shoulder_roll_joint" pos="0 0 0" axis="1 0 0" range="-3.14 3.14"/>
+          <geom type="capsule" size="0.025 0.04" pos="0 0 -0.04" rgba="0.4 0.4 0.4 1"
+                contype="0" conaffinity="0" group="1" density="0"/>
+          <body name="right_shoulder_yaw_link" pos="0 0 -0.15">
+            <inertial pos="4.0005E-05 -0.0096497 -0.046199" mass="1.8326"
+                      fullinertia="0.0010713 0.0015489 0.00083406 2.622E-07 -1.8125E-06 -2.4776E-05"/>
+            <joint name="right_shoulder_yaw_joint" pos="0 0 0" axis="0 0 -1" range="-3.14 3.14"/>
+            <geom type="capsule" size="0.025 0.03" pos="0 -0.01 -0.03" rgba="0.7 0.7 0.7 1"
+                  contype="0" conaffinity="0" group="1" density="0"/>
+            <body name="right_elbow_link" pos="0 0 -0.05">
+              <inertial pos="0.12357 1.2822E-07 1.8411E-06" mass="0.21621"
+                        fullinertia="0.00017757 0.00082123 0.00080029 2.3212E-09 3.6633E-08 3.7971E-09"/>
+              <joint name="right_elbow_joint" pos="0 0 0" axis="0 1 0" range="-3.14 1.4"/>
+              <geom type="capsule" size="0.02 0.12" pos="0.12 0 0" quat="0.7071068 0 0.7071068 0"
+                    rgba="0.4 0.4 0.4 1" contype="0" conaffinity="0" group="1" density="0"/>
+              <!-- Hand end-effector sphere (no wrist joint) -->
+              <body name="right_hand_sphere_link" pos="0.25 0 0">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                <geom type="sphere" size="0.02" rgba="0.9 0.5 0.5 1"
+                      contype="0" conaffinity="0" group="1" density="0"/>
+                <geom name="right_hand_sphere_link" type="sphere" size="0.02" rgba="0.9 0.5 0.5 1"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- ===== Waist + Pelvis ===== -->
+      <body name="pelvis" pos="0 0 -0.12">
+        <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+        <joint name="waist_yaw_joint" pos="0 0 0" axis="0 0 -1" range="-3.14 3.14"/>
+        <geom type="capsule" size="0.06 0.05" pos="0 0 -0.03" rgba="0.4 0.4 0.4 1"
+              contype="0" conaffinity="0" group="1" density="0"/>
+
+        <!-- ===== Left leg ===== -->
+        <body name="left_hip_pitch_link" pos="0 0.084 -0.0884974226119287">
+          <inertial pos="0.011467 0.02071 -0.069132" mass="1.9165"
+                    fullinertia="0.0033147 0.0027375 0.0022414 -1.4818E-06 1.4934E-05 -0.00016135"/>
+          <joint name="left_hip_pitch_joint" pos="0 0 0"
+                 axis="0 0.866025403784438 -0.500000000000001" range="-3.14 3.14"/>
+          <geom type="capsule" size="0.04 0.04" pos="0.01 0.02 -0.04" rgba="0.7 0.7 0.7 1"
+                contype="0" conaffinity="0" group="1" density="0"/>
+          <body name="left_hip_roll_link" pos="0 0.021 -0.0715025773880713">
+            <inertial pos="0.047137 6.7548E-07 -0.0045834" mass="32.656"
+                      fullinertia="0.20838 0.13226 0.13162 1.3695E-07 -0.00087974 1.3493E-09"/>
+            <joint name="left_hip_roll_joint" pos="0 0 0" axis="-1 0 0" range="-3.14 3.14"/>
+            <geom type="capsule" size="0.04 0.03" pos="0.03 0 -0.005" rgba="0.4 0.4 0.4 1"
+                  contype="0" conaffinity="0" group="1" density="0"/>
+            <body name="left_hip_yaw_link" pos="0 0 -0.0806217782649111">
+              <inertial pos="0.00134029315695965 -0.00379485790733963 -0.138950783909811" mass="2.96048050823029"
+                        fullinertia="0.00986599129149139 0.0114143843304939 0.00444249798779384 -5.6874391617284E-10 0.000130405286493311 7.23543534104859E-06"/>
+              <joint name="left_hip_yaw_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+              <geom type="capsule" size="0.035 0.07" pos="0 0 -0.08" rgba="0.7 0.7 0.7 1"
+                    contype="0" conaffinity="0" group="1" density="0"/>
+              <body name="left_knee_link" pos="0 0 -0.21">
+                <inertial pos="-0.012403511900785 0.00231915943884244 -0.132237269348304" mass="1.70063096035755"
+                          fullinertia="0.0056011727523576 0.00518751512197476 0.00103053870538839 9.0110224667701E-06 3.65112839835118E-05 -0.000392448694782279"/>
+                <joint name="left_knee_joint" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14"/>
+                <geom type="capsule" size="0.03 0.08" pos="-0.01 0 -0.09" rgba="0.4 0.4 0.4 1"
+                      contype="0" conaffinity="0" group="1" density="0"/>
+                <body name="left_ankle_pitch_link" pos="0 0 -0.32">
+                  <inertial pos="-2.24166477890205E-10 3.1424476909514E-10 -0.0068598282981176" mass="0.0996725919976225"
+                            fullinertia="6.6126095807487E-06 9.79007168670228E-06 9.91381598596554E-06 8.18889871179578E-13 2.87674725078337E-13 -4.2586372060893E-13"/>
+                  <joint name="left_ankle_pitch_joint" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"/>
+                  <geom type="sphere" size="0.02" rgba="0.7 0.7 0.7 1"
+                        contype="0" conaffinity="0" group="1" density="0"/>
+                  <body name="left_ankle_roll_link" pos="0 0 -0.012">
+                    <inertial pos="0.0384935037331472 9.26571885884186E-09 -0.0165977251014418" mass="1.36158386877804"
+                              fullinertia="0.000589798422212745 0.00449471310883794 0.00505529221868301 3.7941578492086E-10 -2.89735141273045E-06 3.79897741489032E-11"/>
+                    <joint name="left_ankle_roll_joint" pos="0 0 0" axis="-1 0 0" range="-3.14 3.14"/>
+                    <geom type="capsule" size="0.025 0.04" pos="0.04 0 -0.01" quat="0.7071068 0 0.7071068 0"
+                          rgba="0.4 0.4 0.4 1" contype="0" conaffinity="0" group="1" density="0"/>
+                    <!-- ===== Left foot sphere contacts ===== -->
+                    <body name="left_ankle_roll_sphere_1_link" pos="-0.05 0.025 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="left_ankle_roll_sphere_1_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="left_ankle_roll_sphere_2_link" pos="-0.05 -0.025 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="left_ankle_roll_sphere_2_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="left_ankle_roll_sphere_3_link" pos="0.12 0.03 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="left_ankle_roll_sphere_3_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="left_ankle_roll_sphere_4_link" pos="0.12 -0.03 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="left_ankle_roll_sphere_4_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="left_ankle_roll_sphere_5_link" pos="0.14 0 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.0 0.9 0.9 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="left_ankle_roll_sphere_5_link" type="sphere" size="0.005" rgba="0.0 0.9 0.9 1"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+
+        <!-- ===== Right leg ===== -->
+        <body name="right_hip_pitch_link" pos="-0.00247876565519594 -0.0839999999999994 -0.0884974226119298">
+          <inertial pos="0.011439 -0.020696 -0.069132" mass="1.9165"
+                    fullinertia="0.0033147 0.0027375 0.0022414 -1.4818E-06 -1.6239E-05 0.00016136"/>
+          <joint name="right_hip_pitch_joint" pos="0 0 0"
+                 axis="0 0.866025403784438 0.500000000000001" range="-3.14 3.14"/>
+          <geom type="capsule" size="0.04 0.04" pos="0.01 -0.02 -0.04" rgba="0.7 0.7 0.7 1"
+                contype="0" conaffinity="0" group="1" density="0"/>
+          <body name="right_hip_roll_link" pos="0.00247876565519607 -0.0210000001081011 -0.0715025773880702">
+            <inertial pos="0.047137 3.0051E-07 -0.0045834" mass="32.656"
+                      fullinertia="0.20838 0.13226 0.13162 -3.4612E-07 -0.00087974 -2.1102E-08"/>
+            <joint name="right_hip_roll_joint" pos="0 0 0" axis="-1 0 0" range="-3.14 3.14"/>
+            <geom type="capsule" size="0.04 0.03" pos="0.03 0 -0.005" rgba="0.4 0.4 0.4 1"
+                  contype="0" conaffinity="0" group="1" density="0"/>
+            <body name="right_hip_yaw_link" pos="0 0 -0.0806217782649111">
+              <inertial pos="0.00134943776559656 0.00386417469200862 -0.138948840168981" mass="2.96048050804334"
+                        fullinertia="0.00986598867189355 0.0114143843301344 0.00444250060673988 -2.71851227559325E-07 0.000130411169299441 8.51171962587357E-06"/>
+              <joint name="right_hip_yaw_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+              <geom type="capsule" size="0.035 0.07" pos="0 0 -0.08" rgba="0.7 0.7 0.7 1"
+                    contype="0" conaffinity="0" group="1" density="0"/>
+              <body name="right_knee_link" pos="0 0 -0.21">
+                <inertial pos="-0.0122265373707012 -0.00272376402581263 -0.132048250221594" mass="1.72175087446352"
+                          fullinertia="0.00579636174745855 0.00537552016383959 0.00104953182833073 -1.15387000961417E-05 3.79919987269377E-05 0.000408429548263929"/>
+                <joint name="right_knee_joint" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14"/>
+                <geom type="capsule" size="0.03 0.08" pos="-0.01 0 -0.09" rgba="0.4 0.4 0.4 1"
+                      contype="0" conaffinity="0" group="1" density="0"/>
+                <body name="right_ankle_pitch_link" pos="0 0 -0.32">
+                  <inertial pos="-2.24166478434087E-10 3.14244699706201E-10 -0.0068598282981176" mass="0.0996725919976226"
+                            fullinertia="6.6126095807487E-06 9.79007168670228E-06 9.91381598596555E-06 8.18889871181668E-13 2.87674725268785E-13 -4.25863720878877E-13"/>
+                  <joint name="right_ankle_pitch_joint" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14"/>
+                  <geom type="sphere" size="0.02" rgba="0.7 0.7 0.7 1"
+                        contype="0" conaffinity="0" group="1" density="0"/>
+                  <body name="right_ankle_roll_link" pos="0 0 -0.012">
+                    <inertial pos="0.0384935037331471 9.26572032988737E-09 -0.0165977251014418" mass="1.36158386877803"
+                              fullinertia="0.000589798422212745 0.00449471310883793 0.005055292218683 3.79415782235259E-10 -2.89735141272972E-06 3.79897740114859E-11"/>
+                    <joint name="right_ankle_roll_joint" pos="0 0 0" axis="-1 0 0" range="-3.14 3.14"/>
+                    <geom type="capsule" size="0.025 0.04" pos="0.04 0 -0.01" quat="0.7071068 0 0.7071068 0"
+                          rgba="0.4 0.4 0.4 1" contype="0" conaffinity="0" group="1" density="0"/>
+                    <!-- ===== Right foot sphere contacts ===== -->
+                    <body name="right_ankle_roll_sphere_1_link" pos="-0.05 0.025 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="right_ankle_roll_sphere_1_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="right_ankle_roll_sphere_2_link" pos="-0.05 -0.025 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="right_ankle_roll_sphere_2_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="right_ankle_roll_sphere_3_link" pos="0.12 0.03 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="right_ankle_roll_sphere_3_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="right_ankle_roll_sphere_4_link" pos="0.12 -0.03 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="right_ankle_roll_sphere_4_link" type="sphere" size="0.005" rgba="0.9 0.9 0.0 1"/>
+                    </body>
+                    <body name="right_ankle_roll_sphere_5_link" pos="0.14 0 -0.03">
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-07 1e-07 1e-07"/>
+                      <geom type="sphere" size="0.005" rgba="0.0 0.9 0.9 1"
+                            contype="0" conaffinity="0" group="1" density="0"/>
+                      <geom name="right_ankle_roll_sphere_5_link" type="sphere" size="0.005" rgba="0.0 0.9 0.9 1"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+
+      </body><!-- end pelvis -->
+    </body><!-- end base_link -->
+  </worldbody>
+</mujoco>
