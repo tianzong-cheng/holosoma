@@ -294,6 +294,23 @@ JOINTS_MAPPINGS = {
         "LeftFoot": "Ankle_Cross_Left",
         "RightFoot": "Ankle_Cross_Right",
     },
+    ("lafan", "irmv_v3"): {
+        "Spine1": "pelvis",
+        "LeftUpLeg": "left_hip_pitch_link",
+        "RightUpLeg": "right_hip_pitch_link",
+        "LeftLeg": "left_knee_link",
+        "RightLeg": "right_knee_link",
+        "LeftFoot": "left_ankle_pitch_link",
+        "RightFoot": "right_ankle_pitch_link",
+        "LeftToeBase": "left_ankle_roll_sphere_5_link",
+        "RightToeBase": "right_ankle_roll_sphere_5_link",
+        "LeftArm": "left_shoulder_roll_link",
+        "RightArm": "right_shoulder_roll_link",
+        "LeftForeArm": "left_elbow_link",
+        "RightForeArm": "right_elbow_link",
+        "LeftHand": "left_hand_sphere_link",
+        "RightHand": "right_hand_sphere_link",
+    },
 }
 
 # Data format specific constants
