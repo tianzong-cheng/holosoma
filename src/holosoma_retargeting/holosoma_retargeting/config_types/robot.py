@@ -197,6 +197,10 @@ class RobotConfig:
             base.update(
                 {
                     "15": -0.5,  # waist_yaw_joint (qpos index 15)
+                    "20": -0.6,  # left_ankle_pitch_joint (qpos index 20)
+                    "21": -0.5,  # left_ankle_roll_joint (qpos index 21)
+                    "26": -0.6,  # right_ankle_pitch_joint (qpos index 26)
+                    "27": -0.5,  # right_ankle_roll_joint (qpos index 27)
                 }
             )
 
@@ -231,6 +235,10 @@ class RobotConfig:
                     "10": 1.4,  # left_elbow_joint (qpos index 10)
                     "14": 1.4,  # right_elbow_joint (qpos index 14)
                     "15": 0.5,  # waist_yaw_joint (qpos index 15)
+                    "20": 0.6,  # left_ankle_pitch_joint (qpos index 20)
+                    "21": 0.5,  # left_ankle_roll_joint (qpos index 21)
+                    "26": 0.6,  # right_ankle_pitch_joint (qpos index 26)
+                    "27": 0.5,  # right_ankle_roll_joint (qpos index 27)
                 }
             )
 
