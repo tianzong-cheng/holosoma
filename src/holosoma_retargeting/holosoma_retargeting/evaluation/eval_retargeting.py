@@ -543,7 +543,8 @@ class RetargetingEvaluator:
 
         input_data_path = f"{input_data_dir}/{task_name}"
         npy_file = next(iter(Path(input_data_path).glob("*.npy")))
-        smpl_scale = self.constants.ROBOT_HEIGHT / 1.78
+        default_human_height = getattr(self.constants, "DEFAULT_HUMAN_HEIGHT", None) or 1.78
+        smpl_scale = self.constants.ROBOT_HEIGHT / default_human_height
         human_joints = np.load(npy_file)[::4] * smpl_scale
 
         contact_sequences = extract_foot_sticking_sequence_velocity(
@@ -616,7 +617,8 @@ class RetargetingEvaluator:
             spine_joint_idx = self.demo_joints.index("Spine1")
             # LAFAN-specific spine adjustment
             human_joints[:, spine_joint_idx, -1] -= 0.06
-            smpl_scale = getattr(self.constants, "DEFAULT_SCALE_FACTOR", None) or 1.0
+            default_human_height = getattr(self.constants, "DEFAULT_HUMAN_HEIGHT", None) or 1.78
+            smpl_scale = self.constants.ROBOT_HEIGHT / default_human_height
 
             human_joints = preprocess_motion_data(human_joints, self, toe_names, smpl_scale)
             demo_joints_for_contact = self.demo_joints
@@ -672,7 +674,7 @@ def _evaluate_single_task(
         scene_xml_path = f"{constants.OBJECT_DIR}/{scene_xml_name}"
 
         object_scale = np.array([1, 1, 1])
-        smpl_scale = constants.ROBOT_HEIGHT / 1.78
+        smpl_scale = constants.ROBOT_HEIGHT / (motion_data_config.default_human_height or 1.78)
 
         # Update object scale in .xml file
         object_asset_xml_path = create_scaled_multi_boxes_xml(

@@ -324,13 +324,12 @@ TOE_NAMES_BY_FORMAT = {
 
 # Data format specific scaling/preprocessing constants
 class FormatConstants(TypedDict, total=False):
-    default_scale_factor: float | None
     default_human_height: float | None
 
 
 DATA_FORMAT_CONSTANTS: dict[str, FormatConstants] = {
     "lafan": {
-        "default_scale_factor": 1.27 / 1.7,
+        "default_human_height": 1.78,
     },
     "mocap": {
         "default_human_height": 1.78,
@@ -418,12 +417,6 @@ class MotionDataConfig:
         return TOE_NAMES_BY_FORMAT[self.data_format]
 
     @property
-    def default_scale_factor(self) -> float | None:
-        """Get default scale factor for this data format (None if calculated per subject)."""
-        format_constants: FormatConstants = DATA_FORMAT_CONSTANTS.get(self.data_format, {})
-        return format_constants.get("default_scale_factor")
-
-    @property
     def default_human_height(self) -> float | None:
         """Get default human height for this data format (None if not applicable)."""
         format_constants: FormatConstants = DATA_FORMAT_CONSTANTS.get(self.data_format, {})
@@ -435,6 +428,5 @@ class MotionDataConfig:
             "DEMO_JOINTS": self.resolved_demo_joints,
             "JOINTS_MAPPING": self.resolved_joints_mapping,
             "TOE_NAMES": self.toe_names,
-            "DEFAULT_SCALE_FACTOR": self.default_scale_factor,
             "DEFAULT_HUMAN_HEIGHT": self.default_human_height,
         }
