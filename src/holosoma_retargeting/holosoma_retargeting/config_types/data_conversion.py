@@ -42,7 +42,7 @@ _ROBOT_JOINT_NAMES_DEFAULT = {
     "irmv_v3": [
         "left_hip_pitch_joint",
         "left_hip_roll_joint",
-        "lefT_hip_yaw_joint",
+        "left_hip_yaw_joint",
         "left_knee_joint",
         "left_ankle_pitch_joint",
         "left_ankle_roll_joint",
