@@ -57,6 +57,11 @@
               <joint name="left_knee_joint" pos="0 0 0" axis="0 1 0" range="-1.0 3.14" actuatorfrcrange="-50 50"/>
               <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="left_knee_link"/>
               <geom name="left_knee_link" type="mesh" rgba="0.7 0.7 0.7 1" mesh="left_knee_link"/>
+              <body name="left_ankle_intermediate_1_link" pos="0 0 -0.28">
+                <inertial pos="0 0 0" mass="0.001" diaginertia="1e-6 1e-6 1e-6"/>
+                <geom type="sphere" size="0.01" rgba="0.7 0.7 0.7 1" contype="0" conaffinity="0" density="0" group="1"/>
+                <geom name="left_ankle_intermediate_1_link" type="sphere" size="0.01"/>
+              </body>
               <body name="left_ankle_pitch_link" pos="0 0 -0.32">
                 <inertial pos="-2.24e-10 3.14e-10 -0.00686" mass="0.09967" diaginertia="6.6126e-06 9.7901e-06 9.9138e-06"/>
                 <joint name="left_ankle_pitch_joint" pos="0 0 0" axis="0 1 0" range="-0.77 0.77"/>
@@ -122,6 +127,11 @@
               <joint name="right_knee_joint" pos="0 0 0" axis="0 1 0" range="-1.0 3.14" actuatorfrcrange="-50 50"/>
               <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="right_knee_link"/>
               <geom name="right_knee_link" type="mesh" rgba="0.7 0.7 0.7 1" mesh="right_knee_link"/>
+              <body name="right_ankle_intermediate_1_link" pos="0 0 -0.28">
+                <inertial pos="0 0 0" mass="0.001" diaginertia="1e-6 1e-6 1e-6"/>
+                <geom type="sphere" size="0.01" rgba="0.7 0.7 0.7 1" contype="0" conaffinity="0" density="0" group="1"/>
+                <geom name="right_ankle_intermediate_1_link" type="sphere" size="0.01"/>
+              </body>
               <body name="right_ankle_pitch_link" pos="0 0 -0.32">
                 <inertial pos="-2.24e-10 3.14e-10 -0.00686" mass="0.09967" diaginertia="6.6126e-06 9.7901e-06 9.9138e-06"/>
                 <joint name="right_ankle_pitch_joint" pos="0 0 0" axis="0 1 0" range="-0.77 0.77"/>
