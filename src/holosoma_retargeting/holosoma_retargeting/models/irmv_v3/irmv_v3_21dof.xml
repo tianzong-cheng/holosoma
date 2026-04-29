@@ -68,28 +68,28 @@
                   <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="left_ankle_roll_link"/>
                   <geom name="left_ankle_roll_link" type="mesh" rgba="0.2 0.2 0.2 1" mesh="left_ankle_roll_link"/>
                   <!-- Foot contact spheres -->
-                  <body name="left_foot_sphere_1_link" pos="-0.05 0.025 -0.03">
+                  <body name="left_foot_sphere_1_link" pos="-0.05 0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="left_foot_sphere_1_link" type="sphere" size="0.005"/>
                   </body>
-                  <body name="left_foot_sphere_2_link" pos="-0.05 -0.025 -0.03">
+                  <body name="left_foot_sphere_2_link" pos="-0.05 -0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="left_foot_sphere_2_link" type="sphere" size="0.005"/>
                   </body>
-                  <body name="left_foot_sphere_3_link" pos="0.12 0.03 -0.03">
+                  <body name="left_foot_sphere_3_link" pos="0.12 0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="left_foot_sphere_3_link" type="sphere" size="0.005"/>
                   </body>
-                  <body name="left_foot_sphere_4_link" pos="0.12 -0.03 -0.03">
+                  <body name="left_foot_sphere_4_link" pos="0.12 -0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="left_foot_sphere_4_link" type="sphere" size="0.005"/>
                   </body>
                   <!-- Virtual toe link -->
-                  <body name="left_toe_link" pos="0.14 0 -0.03">
+                  <body name="left_toe_link" pos="0.15 0 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="left_toe_link" type="sphere" size="0.005"/>
@@ -133,28 +133,28 @@
                   <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="right_ankle_roll_link"/>
                   <geom name="right_ankle_roll_link" type="mesh" rgba="0.2 0.2 0.2 1" mesh="right_ankle_roll_link"/>
                   <!-- Foot contact spheres -->
-                  <body name="right_foot_sphere_1_link" pos="-0.05 0.025 -0.03">
+                  <body name="right_foot_sphere_1_link" pos="-0.05 0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="right_foot_sphere_1_link" type="sphere" size="0.005"/>
                   </body>
-                  <body name="right_foot_sphere_2_link" pos="-0.05 -0.025 -0.03">
+                  <body name="right_foot_sphere_2_link" pos="-0.05 -0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="right_foot_sphere_2_link" type="sphere" size="0.005"/>
                   </body>
-                  <body name="right_foot_sphere_3_link" pos="0.12 0.03 -0.03">
+                  <body name="right_foot_sphere_3_link" pos="0.12 0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="right_foot_sphere_3_link" type="sphere" size="0.005"/>
                   </body>
-                  <body name="right_foot_sphere_4_link" pos="0.12 -0.03 -0.03">
+                  <body name="right_foot_sphere_4_link" pos="0.12 -0.03 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="right_foot_sphere_4_link" type="sphere" size="0.005"/>
                   </body>
                   <!-- Virtual toe link -->
-                  <body name="right_toe_link" pos="0.14 0 -0.03">
+                  <body name="right_toe_link" pos="0.15 0 -0.018">
                     <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                     <geom type="sphere" size="0.005" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0" density="0" group="1"/>
                     <geom name="right_toe_link" type="sphere" size="0.005"/>
@@ -195,7 +195,7 @@
                 <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="left_elbow_link"/>
                 <geom name="left_elbow_link" type="mesh" rgba="0.7 0.7 0.7 1" mesh="left_elbow_link"/>
                 <!-- Virtual end-effector -->
-                <body name="left_ee_link" pos="0.10 0 0">
+                <body name="left_ee_link" pos="0.22 0 0">
                   <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                   <geom type="sphere" size="0.01" rgba="0.2 0.5 0.8 1" contype="0" conaffinity="0" density="0" group="1"/>
                   <geom name="left_ee_link" type="sphere" size="0.01"/>
@@ -227,7 +227,7 @@
                 <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="right_elbow_link"/>
                 <geom name="right_elbow_link" type="mesh" rgba="0.7 0.7 0.7 1" mesh="right_elbow_link"/>
                 <!-- Virtual end-effector -->
-                <body name="right_ee_link" pos="0.10 0 0">
+                <body name="right_ee_link" pos="0.22 0 0">
                   <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7"/>
                   <geom type="sphere" size="0.01" rgba="0.2 0.5 0.8 1" contype="0" conaffinity="0" density="0" group="1"/>
                   <geom name="right_ee_link" type="sphere" size="0.01"/>
